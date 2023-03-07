@@ -26,7 +26,7 @@ class MyTextfields extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.blue),
           ),
-          fillColor: Colors.grey.shade100,
+          fillColor: Colors.grey.shade300,
           filled: true,
           hintText: hintText
         ),
