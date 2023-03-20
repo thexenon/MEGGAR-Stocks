@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meggar/screens/introscreen.dart';
 import 'package:meggar/screens/login.dart';
+import 'package:meggar/screens/signup.dart';
 
 void main() {
   runApp(const MyApp());

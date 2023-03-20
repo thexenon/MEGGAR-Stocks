@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meggar/screens/signup.dart';
 
 import '../components/button.dart';
 import '../components/square_tile.dart';
 import '../components/textfields.dart';
 
 class Login extends StatefulWidget {
-  const Login({ Key? key }) : super(key: key);
+  const Login({Key? key}) : super(key: key);
 
   @override
   _LoginState createState() => _LoginState();
@@ -25,33 +26,39 @@ class _LoginState extends State<Login> {
         child: Container(
           decoration: BoxDecoration(
 
-            // image: DecorationImage(image: AssetImage('back.png')),
-          ),
+              // image: DecorationImage(image: AssetImage('back.png')),
+              ),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 //logo
-                Image.asset('assets/logo.png', width: 100,),
-                const SizedBox(
-                  height: 40,
+                Image.asset(
+                  'assets/logo.png',
+                  width: 80,
                 ),
-        
+                const SizedBox(
+                  height: 20,
+                ),
+
                 //welcome back
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Welcome back to Meggar Stocks',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                    Text(
+                      'Welcome back to Meggar Stocks',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
-        
+
                 //username
                 MyTextfields(
                   controller: usernamecontroller,
@@ -59,22 +66,24 @@ class _LoginState extends State<Login> {
                   obscureText: false,
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
-        
+
                 //password
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextField(
                     controller: passwordnamecontroller,
                     decoration: InputDecoration(
                       suffixIcon: GestureDetector(
-                        onTap: (){
-                          setState((){                            
-                          _obscureText = !_obscureText;
+                        onTap: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
                           });
                         },
-                        child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                        child: Icon(_obscureText
+                            ? Icons.visibility
+                            : Icons.visibility_off),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
@@ -90,9 +99,9 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
-        
+
                 //forgot password
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -107,23 +116,25 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 const SizedBox(
-                  height: 25,
+                  height: 15,
                 ),
-        
+
                 //sign in button
                 MyButton(
+                  btntext: 'Sign In',
                   onTap: signUserIn(),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
-        
+
                 //continue with
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25),
                   child: Row(
                     children: [
-                      Expanded(child: Divider(
+                      Expanded(
+                          child: Divider(
                         thickness: 2,
                         color: Colors.white,
                       )),
@@ -131,36 +142,59 @@ class _LoginState extends State<Login> {
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Text('Continue With'),
                       ),
-                      Expanded(child: Divider(
+                      Expanded(
+                          child: Divider(
                         thickness: 2,
                         color: Colors.white,
                       )),
                     ],
                   ),
                 ),
-        
+
                 //google + apple
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SquareTile(imagePath: 'assets/apple.jpeg'),
-                    const SizedBox(width: 20,),
+                    const SizedBox(
+                      width: 20,
+                    ),
                     SquareTile(imagePath: 'assets/google.png'),
-                    const SizedBox(width: 20,),
+                    const SizedBox(
+                      width: 20,
+                    ),
                   ],
                 ),
-                const SizedBox(height: 40,),
-        
+                const SizedBox(
+                  height: 20,
+                ),
+
                 //not a member
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Not a member?'),
-                    const SizedBox(width: 4 ,),
-                    Text('Register Now', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold,),),
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            Signup();
+                          });
+                        },
+                        child: Text(
+                          'Register Now',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )),
                   ],
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           ),
@@ -170,5 +204,4 @@ class _LoginState extends State<Login> {
   }
 }
 
-signUserIn() {
-}
+signUserIn() {}
